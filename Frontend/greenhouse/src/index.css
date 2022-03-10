@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Oxygen', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background: url("assert/img/bg.jpg")
+}
+
+
+.preloader {
+    width: 120px;
+    margin: auto auto;
+}
+
+.auth-form{
+    max-width: 800px;
+    margin: 200px auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px darkgray solid;
+    background: #f6f8fa;
+}
