@@ -6,6 +6,7 @@ import {Sidebar} from "./components/Sidebar/sidebar";
 import {Layout} from "antd";
 import {Preloader} from "./components/Common/Preloader";
 import AuthService from "./services/Authentication/auth.service";
+import {Photos} from "./components/Photos/Photos";
 
 const {Content} = Layout;
 
@@ -36,6 +37,7 @@ function App() {
                             <Content style={{margin: '0 16px'}}>
                                 <Routes>
                                     <Route path="/" element={<Home/>}/>
+                                    <Route path="/photos/" element={<Photos/>}/>
                                 </Routes>
                             </Content>
                         </Layout>

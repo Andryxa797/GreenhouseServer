@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from teplitsa.models import SensorData, ManagedSystems, CommandToManage
+from teplitsa.models import SensorData, ManagedSystems, CommandToManage, Photo
 
 
 class SensorDataSerializerList(serializers.ModelSerializer):
@@ -20,6 +20,26 @@ class SensorDataSerializerCreate(serializers.ModelSerializer):
 
     class Meta:
         model = SensorData
+        exclude = ['owner']
+
+
+class PhotoSerializerList(serializers.ModelSerializer):
+    """
+    Просмотр всех записей с данными датчиков
+    """
+
+    class Meta:
+        model = Photo
+        fields = '__all__'
+
+
+class PhotoSerializerCreate(serializers.ModelSerializer):
+    """
+    Создание записи с данными датчиков
+    """
+
+    class Meta:
+        model = Photo
         exclude = ['owner']
 
 

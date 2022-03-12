@@ -24,6 +24,11 @@ export interface IStationManageSystemDTO {
     is_on_watering: boolean;
     owner: number;
 }
+export interface IPhotoDTO {
+    id: number;
+    created_at: string;
+    photo: string;
+}
 export interface ICommandManageRequest {
     servo_turn: number;
     is_on_lighting: boolean;
@@ -36,6 +41,9 @@ export interface ISensorData extends IPaginationResponse {
 }
 export interface IStationManageSystem extends IPaginationResponse {
     results: Array<IStationManageSystemDTO>
+}
+export interface IPhotoData extends IPaginationResponse {
+    results: Array<IPhotoDTO>
 }
 
 export class DataService {
@@ -114,6 +122,25 @@ export class DataService {
                 }
             };
             xhr.send(JSON.stringify(request));
+        });
+    }
+    static async getPhotos() {
+        const url = BaseApiURL + "/api/photo/";
+        return new Promise<IPhotoData>((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken());
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState !== XMLHttpRequest.DONE) return;
+                if (xhr.status > 199 && xhr.status < 300) {
+                    const result = JSON.parse(xhr.responseText);
+                    resolve(result);
+                } else {
+                    reject(JSON.parse(xhr.responseText).value);
+                }
+            };
+            xhr.send();
         });
     }
 }

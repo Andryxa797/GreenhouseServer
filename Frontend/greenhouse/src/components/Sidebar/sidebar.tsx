@@ -14,8 +14,9 @@ export const Sidebar = () => {
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                 <Menu.Item key="1" icon={<PieChartOutlined/>}><Link to="/">Главная</Link></Menu.Item>
-                <Menu.Item key="2" icon={<DesktopOutlined/>}><Link to="about/">О проекте</Link></Menu.Item>
-                <Menu.Item key="3" onClick={() => AuthService.Logout()} style={{color: "red"}}>Выйти</Menu.Item>
+                <Menu.Item key="2" icon={<DesktopOutlined/>}><Link to="photos/">Фотографии</Link></Menu.Item>
+                <Menu.Item key="3" icon={<DesktopOutlined/>}><Link to="about/">О проекте</Link></Menu.Item>
+                <Menu.Item key="4" onClick={() => AuthService.Logout()} style={{color: "red"}}>Выйти</Menu.Item>
             </Menu>
         </Sider>
     )
