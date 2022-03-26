@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import 'antd/dist/antd.less';
 import {Routes, Route, Navigate} from "react-router-dom";
 import {Home} from "./components/Home/Home";
 import {Auth} from "./components/Auth/Auth";

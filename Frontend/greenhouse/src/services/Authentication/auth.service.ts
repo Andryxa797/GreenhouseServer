@@ -12,18 +12,22 @@ class AuthService {
         const accessToken = localStorage.getItem("_access")
         const refreshToken = localStorage.getItem("_refresh")
         if (accessToken && refreshToken) {
-            const response = await AuthServiceAPI.verificationTokenToken(accessToken)
-            if(response?.code) return false;
-            setInterval(()=>{
-                const refreshToken = localStorage.getItem("_refresh")
-                if(refreshToken) {
-                    AuthServiceAPI.getAccessToken(refreshToken)
-                        .then((result)=>{
-                            localStorage.setItem("_access", result.access)
-                        })
-                }
-            }, 180000)
-            return true
+            try {
+                const response = await AuthServiceAPI.verificationTokenToken(accessToken)
+                setInterval(() => {
+                    const refreshToken = localStorage.getItem("_refresh")
+                    if (refreshToken) {
+                        AuthServiceAPI.getAccessToken(refreshToken)
+                            .then((result) => {
+                                localStorage.setItem("_access", result.access)
+                            })
+                    }
+                }, 180000)
+                return !(response && response.code === "token_not_valid");
+            }
+            catch (e){
+                return false
+            }
         }
         return false
     }
@@ -44,13 +48,13 @@ class AuthService {
                 notification.error({message: 'Ошибка авторизации', description: e})
             })
     }
+
     async Logout() {
         localStorage.removeItem("_access")
         localStorage.removeItem("_refresh")
         document.location.reload();
     }
 }
-
 
 
 class AuthServiceAPI {
@@ -115,4 +119,5 @@ class AuthServiceAPI {
         });
     }
 }
+
 export default new AuthService()

@@ -56,7 +56,7 @@ export const ManagedSystemsData = () => {
 
     return (
         <div style={{marginTop: "20px"}}>
-            <Table dataSource={data} columns={columns} pagination={false}/>
+            <Table style={{marginTop: "20px"}} dataSource={data} columns={columns} pagination={false} scroll={{ x: 1200 }} />
         </div>
     )
 }

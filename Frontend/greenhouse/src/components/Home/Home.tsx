@@ -10,16 +10,16 @@ export const Home = () => {
     return (
         <>
             <Row gutter={[16, 16]}>
-                <Col sm={12}>
+                <Col xl={12} >
                     <ManagedSystemsData/>
                 </Col>
-                <Col sm={12}>
+                <Col xl={12}>
                     <ManageForm setReload={setReload} reload={reload}/>
                     <ActuallyCommandManage reload={reload}/>
                 </Col>
             </Row>
             <Row gutter={[16, 16]}>
-                <Col sm={24}>
+                <Col xl={24}>
                     <SensorsData/>
                 </Col>
             </Row>

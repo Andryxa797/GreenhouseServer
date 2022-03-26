@@ -17,7 +17,7 @@ export const ManageForm = ({setReload, reload}:IManageProps) => {
     };
 
     return (
-        <div style={{marginTop: "20px", background: "#fff", padding: "10px 20px"}}>
+        <div style={{marginTop: "20px", background: "#fff", padding: "10px 20px", width: "100%"}}>
             <Form
                 name="basic"
                 labelCol={{span: 8}}

@@ -17,7 +17,7 @@ export const ActuallyCommandManage = ({reload}:IActuallyCommandManageProps) => {
     }, [reload])
 
     return (
-        <div style={{marginTop: "20px", background: "#fff", padding: "20px"}}>
+        <div style={{marginTop: "20px", background: "#fff", padding: "20px", width: "100%"}}>
             <Title level={3}>Последняя запись команды для управления</Title>
             <div>Включен ли свет? {data?.is_on_lighting ?
                 <Tag color="green">Да</Tag> :

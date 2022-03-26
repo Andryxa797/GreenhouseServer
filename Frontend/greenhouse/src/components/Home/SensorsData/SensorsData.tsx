@@ -50,7 +50,7 @@ export const SensorsData = () => {
 
     return (
         <div style={{marginTop: "20px"}}>
-            <Table columns={columns} dataSource={data} pagination={false}/>
+            <Table columns={columns} dataSource={data} pagination={false} scroll={{ x: 1200 }} />
         </div>
     )
 }
